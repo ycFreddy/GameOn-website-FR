@@ -5,6 +5,4 @@
 - Ajout de la vérification de la validation du formulaire
 - Ajout d'un texte de confirmation après validation du formulaire
 
-Code Html Réarrangé pour validation W3C
-CSS validé W3C
-
+Code CSS et Html Réarrangé pour validation W3C
