@@ -527,3 +527,13 @@ footer {
   }
 }
 
+.errPrenom, .errNom, .errEmail, .errDate, .errcheckbox1, .errNbr, .errlocation {
+  font-size: small;
+  color: red;
+}
+
+.msgValide {
+  padding: 1em;
+  text-align: center;
+  color: #279e7a;
+}
