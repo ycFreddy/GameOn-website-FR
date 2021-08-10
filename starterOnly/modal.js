@@ -12,7 +12,6 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formDatas = document.querySelectorAll(".formData");
 const modalClose = document.querySelector(".close");
-var displayErrLoc = 1;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -34,57 +33,46 @@ function closeModal() {
  * traitement du formulaire
  */
 formDatas.forEach(function (element) {  
-  NodeList.prototype.forEach = Array.prototype.forEach
-  var children = element.childNodes;
-  children.forEach(function(item){
-      switch (item.name) {
+  NodeList.prototype.forEach = Array.prototype.forEach;  
+  element.childNodes.forEach(function(item){
+      switch (item.name) {        
+        // Traitement du Prénom     
         case "first" :
-          // Traitement du Prénom
-          const prenom = document.getElementById(item.name);
-          const errPrenom = document.querySelector('.errPrenom');
-          prenom.addEventListener('input', function(efirst) {  
-            if (efirst.target.value.length>=2) errPrenom.style.display = "none";
-            else errPrenom.style.display = "block";
+          item.addEventListener('input', function(e) {  
+            if (e.target.value.length>=2) item.nextElementSibling.style.display = "none";
+            else item.nextElementSibling.style.display = "block";
           });
           break;
-        case "last" :
-          // Traitement du Nom
-          const nom = document.getElementById('last');
-          const errNom = document.querySelector('.errNom');
-          nom.addEventListener('input', function(e) {  
-            if (e.target.value.length>=2) errNom.style.display = "none";
-            else errNom.style.display = "block";
+        // Traitement du Nom
+        case "last" :        
+          item.addEventListener('input', function(e) {  
+            if (e.target.value.length>=2) item.nextElementSibling.style.display = "none";
+            else item.nextElementSibling.style.display = "block";
           });
           break;
+        // Traitement de l'email
         case "email" :
-          // Traitement de l'email
-          const email = document.getElementById('email');
-          const errEmail = document.querySelector('.errEmail');
           const regexpMail= /^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/;
-          email.addEventListener('input', function(e) {
+          item.addEventListener('input', function(e) {
             var testEmail = regexpMail.test(e.target.value);
-            if (testEmail) errEmail.style.display = "none";
-            else errEmail.style.display = "block";
+            if (testEmail) item.nextElementSibling.style.display = "none";
+            else item.nextElementSibling.style.display = "block";
           });
           break;
+        // Traitement de la date d'anniversaire
         case "birthdate" :
-          // Traitement de la date d'anniversaire
-          const date = document.getElementById('birthdate');
-          const errDate = document.querySelector('.errDate');
           const regexpDate = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
-          date.addEventListener('input', function(e) {
+          item.addEventListener('input', function(e) {
             var testDate = regexpDate.test(e.target.value);
-            if (testDate) errDate.style.display = "none";
-            else errDate.style.display = "block";
+            if (testDate) item.nextElementSibling.style.display = "none";
+            else item.nextElementSibling.style.display = "block";
           });
           break;
-        case "quantity" :
-          // Traitement du Nombre de participation au tournois
-          const nbrTournois = document.getElementById('quantity');
-          const errNbr = document.querySelector('.errNbr');
-          nbrTournois.addEventListener('input', function(e) {  
-            if (e.target.value>=0) errNbr.style.display = "none";
-            else errNbr.style.display = "block";
+        // Traitement du Nombre de participation au tournois
+        case "quantity" :          
+          item.addEventListener('input', function(e) {  
+            if (e.target.value>=0) item.nextElementSibling.style.display = "none";
+            else item.nextElementSibling.style.display = "block";
           });
           break;
         case "location" :
