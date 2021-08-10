@@ -92,12 +92,8 @@ formDatas.forEach(function (element) {
         case "cu" :          
           item.addEventListener("click", function (e) {
             cuValide = item.checked;
-            if (item.checked == false)  {
-              item.nextElementSibling.nextElementSibling.style.display = "block";
-            }
-            else {
-              item.nextElementSibling.nextElementSibling.style.display = "none";
-            }
+            if (item.checked == false) item.nextElementSibling.nextElementSibling.style.display = "block";
+            else item.nextElementSibling.nextElementSibling.style.display = "none";
           });
           break;
       }
