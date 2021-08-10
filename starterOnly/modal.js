@@ -12,6 +12,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formDatas = document.querySelectorAll(".formData");
 const modalClose = document.querySelector(".close");
+var lieuValide = false;
+var cuValide = false;
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -32,12 +34,12 @@ function closeModal() {
 /**
  * traitement du formulaire
  */
-formDatas.forEach(function (element) {  
-  NodeList.prototype.forEach = Array.prototype.forEach;  
-  element.childNodes.forEach(function(item){
-      switch (item.name) {        
+formDatas.forEach(function (element) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+  element.childNodes.forEach(function(item){    
+      switch (item.name) {           
         // Traitement du Prénom     
-        case "first" :
+        case "first" :          
           item.addEventListener('input', function(e) {  
             if (e.target.value.length>=2) item.nextElementSibling.style.display = "none";
             else item.nextElementSibling.style.display = "block";
@@ -75,64 +77,42 @@ formDatas.forEach(function (element) {
             else item.nextElementSibling.style.display = "block";
           });
           break;
+        // Traitement du lieu
         case "location" :
-
+          const radios = document.getElementsByName(item.name);
+          const errLocMsg = document.querySelector('.errlocation');
+          radios.forEach((elem) => {
+            elem.addEventListener("change", function (e) {
+            errLocMsg.style.display = "none";
+            lieuValide = true;
+            });
+          });
           break;
-        case "cu" :
-
+        // Traitement des conditions d'utilisation
+        case "cu" :          
+          item.addEventListener("click", function (e) {
+            cuValide = item.checked;
+            if (item.checked == false)  {
+              item.nextElementSibling.nextElementSibling.style.display = "block";
+            }
+            else {
+              item.nextElementSibling.nextElementSibling.style.display = "none";
+            }
+          });
           break;
-    }
+      }
   });
 });
-
-// Traitement des conditions d'utilisation
-const cu = document.getElementById("checkbox1");
-const errCuMsg = document.querySelector('.errcheckbox1');
-cu.addEventListener("click", clickcu);
-function clickcu() {
-  if (cu.checked == false)  errCuMsg.style.display = "block";
-  else errCuMsg.style.display = "none";
-}
-
-// Traitement du lieu
-var displayErrLoc = 1;
-//const radios = document.querySelectorAll('input[name="location"]');
-const radios = document.getElementsByName("location");
-const errLocMsg = document.querySelector('.errlocation');
-radios.forEach((elem) => {  
-  elem.addEventListener("change", checkradio);
-});
-function checkradio() {
-  errLocMsg.style.display = "none";
-  displayErrLoc = 0;
-};
-
 
 /**
 * Vérification du formulaire
 */
-function validate(event) {  
-  // Vérification de location  
-  if (displayErrLoc != 0){
-    errLocMsg.style.display = "block";    
-    event.preventDefault();
-    if(event.preventDefault) alert("toto");
-  }
-  else {
-    var lieuValide = 1;
-  }
-  
-  // Vérification Condition d'utilisation
-  if (cu.checked == false){
-    errCuMsg.style.display = "block";    
-    event.preventDefault();
-  }
-  else {
-    var cuValide = 1;
-  }
-  
-  if (lieuValide == 1 && cuValide == 1){
+function validate(event) {    
+  if (lieuValide && cuValide){
     const valide = document.querySelector('.modal-body');
     valide.innerHTML = '<div class="msgValide">Merci !<br><br>Votre réservation a été reçue.</div>';
+  }
+  else {
+    event.preventDefault();
   }
 }
