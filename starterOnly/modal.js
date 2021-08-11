@@ -74,7 +74,7 @@ formDatas.forEach(function (element) {
         // Traitement du Nombre de participation au tournois
         case "quantity" :          
           item.addEventListener('input', function(e) {  
-            if (e.target.value>=0) item.nextElementSibling.style.display = "none";
+            if (e.target.value>0) item.nextElementSibling.style.display = "none";
             else item.nextElementSibling.style.display = "block";
           });
           break;
