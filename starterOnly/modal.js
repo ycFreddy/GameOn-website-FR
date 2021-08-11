@@ -35,6 +35,7 @@ function closeModal() {
  * traitement du formulaire
  */
 formDatas.forEach(function (element) {
+  // Ajoute la propriété tableau foreach sur NodeList
   NodeList.prototype.forEach = Array.prototype.forEach;
   element.childNodes.forEach(function(item){    
       switch (item.name) {           
