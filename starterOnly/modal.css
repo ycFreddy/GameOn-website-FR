@@ -533,7 +533,12 @@ footer {
 }
 
 .msgValide {
+  font-size: 36px;
+  display: flex;
+  text-align: center;
+  align-items: center;
   padding: 1em;
   text-align: center;
-  color: #279e7a;
+  color: #ffffff;
+  height: 800px;
 }

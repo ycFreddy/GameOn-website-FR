@@ -107,7 +107,7 @@ formDatas.forEach(function (element) {
 function validate(event) {    
   if (lieuValide && cuValide){
     const valide = document.querySelector('.modal-body');
-    valide.innerHTML = '<div class="msgValide">Merci !<br><br>Votre réservation a été reçue.</div>';
+    valide.innerHTML = '<div class="msgValide">Thank you for submiting your registration details</div>';
   }
   else {
     event.preventDefault();
