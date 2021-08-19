@@ -49,7 +49,7 @@ img {
   margin: 5px;
   text-decoration: none;
   font-size: 20px;
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, sans-serif;  
 }
 
 .topnav a:hover {
@@ -68,38 +68,16 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
+.msgValide {
+  font-size: 36px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding: 1em;
+  text-align: center;
+  color: #ffffff;
+  height: 800px;
 }
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
 
 main {
   font-size: 130%;
@@ -532,13 +510,85 @@ footer {
   color: red;
 }
 
-.msgValide {
-  font-size: 36px;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  padding: 1em;
-  text-align: center;
-  color: #ffffff;
-  height: 800px;
+@media screen and (max-width: 768px) {
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
 }
+
+@media screen and (max-width: 768px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+ @media screen and (max-width: 540px) {
+  main {
+    padding: unset;
+  }
+  
+  p {
+    padding: unset;
+    margin: unset;
+  }
+  .hero-img img {
+    padding: unset;
+    margin: unset;
+  }
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    margin-top: -15px;
+  }
+  .msgValide {    
+    height: 550px;
+  }
+  .header-logo img {
+    height: 5vw;
+    margin-left: 0.4em;
+  }
+  .hero-headline {
+    font-size: 2rem;
+    padding: unset;
+    padding-left: unset;
+    font-weight: bold;
+  }
+  .topnav a {
+    color:#FF001B;
+  }
+  .hero-text {
+    font-size: 3.5vw;
+    margin: unset;
+    margin-top: 1.5em;
+  }
+  .hero-content {
+    margin: unset;
+    margin-bottom: 1em;
+    padding: unset;
+    min-width: unset;
+    text-align: left;
+    width: 100%;
+  }
+  .hero-section {
+    min-height: unset;
+    margin: unset;
+  }
+  .copyrights {
+    margin: unset;
+    padding: unset;
+    font-size: 0.6rem;
+  }
+  .btn-signup {
+    font-size: 1rem;
+  }
+} 
